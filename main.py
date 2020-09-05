@@ -6,11 +6,8 @@
 import datetime
 
 from Text_to_Voice import speak_it
-from Fx import start
-from Fx import wishMe
-from Fx import wiki
-from Fx import sendEmail
-from Fx import web_s
+from Fx import start, wishMe, wiki, sendEmail, web_s
+from speech_to_text import takeCommand
 from weather import weather_report
 
 # Global Variables
@@ -23,7 +20,21 @@ wishMe()
 start()
 while requestAIs!="exit":
     flag = 0
-    requestAI=input("You     => ")
+    
+    print("SPRITAN => Sir, would you like speak or type for commanding\n\t\t press 1 to speak and 2 to type")
+    speak_it("Sir, would you like to speak or type for commanding. press 1 to speak and 2 to type")
+    ch = input("You     => ")
+    # Checking for voice and text
+    if ch == "1":
+        print("SPRITAN => Plz Speak.")
+        speak_it('Please Speak')
+        requestAI = takeCommand()
+        print("You     => "+requestAI)
+    elif ch == "2":
+        print("SPRITAN => Plz Command.")
+        speak_it('Please command')
+        requestAI = input("You     => ")
+
     requestAIs=requestAI.lower() #can be changed latter
     if 'wikipedia' in requestAIs:
         wiki(requestAIs)

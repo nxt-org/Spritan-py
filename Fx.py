@@ -3,11 +3,12 @@
     this module is for all random feature and functions which are not too big to have separate modules
 """
 #import
-from Text_to_Voice import speak_it
 import datetime
 import wikipedia
 import smtplib
 import webbrowser
+
+from Text_to_Voice import speak_it
 
 # Start welcome function
 def start ():
@@ -24,7 +25,6 @@ def wishMe():
         speak_it("Good Morning!")
     elif hour>=12 and hour<18:
         speak_it("Good Afternoon!")   
-
     else:
         speak_it("Good Evening!")  
 
