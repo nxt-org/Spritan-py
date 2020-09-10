@@ -18,7 +18,9 @@ i=0
 # working
 wishMe()
 start()
+
 while requestAIs!="exit":
+    
     flag = 0
     
     print("SPRITAN => Sir, would you like speak or type for commanding\n\t\t press 1 to speak and 2 to type")
@@ -36,8 +38,11 @@ while requestAIs!="exit":
         requestAI = input("You     => ")
 
     requestAIs=requestAI.lower() #can be changed latter
+    
     if 'wikipedia' in requestAIs:
         wiki(requestAIs)
+        flag +=1
+    
     elif 'send email' in requestAIs:
         try:
             to = input("To: ")
@@ -48,13 +53,16 @@ while requestAIs!="exit":
         except Exception as e:
             print(e)
             speak_it("Sorry my friend. I am not able to send this email")
+        flag += 1
     
     elif 'web open' in requestAIs:
         web_s(requestAIs)
+        flag += 1
     
     elif requestAIs == "exit":
         print("Goodbye take care")
         speak_it("Goodbye, take care")
+        flag += 1
     
     elif 'current' in requestAIs:
         
@@ -62,8 +70,15 @@ while requestAIs!="exit":
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak_it("Sir, the time is"+strTime)
             print("SPRITAN => Sir, the time is "+strTime)
+            flag += 1
         
         elif 'weather' in requestAIs:
             weather_report()
+            flag += 1
+
+    elif flag != 0 :
+        
+
+    
 
 
