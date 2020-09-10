@@ -53,8 +53,8 @@ def get_respond(u_input):
             
         elif ch=='N' or ch=='n':
             return "Hopefully I will learn it someday."
-            
+ #testing.           
 k = "are joj?"
 p_out = get_respond(k)
-speak_it(p_out)
+speak_it(p_out
 print(p_out)
